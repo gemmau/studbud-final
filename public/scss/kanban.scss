@@ -1,0 +1,6 @@
+/* the grid template columns the available space for however many columns there are. the minmax means columns have a minimum of 200px and maximum of the available width divided by however many columns there are. */
+.k-board {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    width: auto;
+}
