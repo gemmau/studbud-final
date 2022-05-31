@@ -15,15 +15,19 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/drew-usyd/studbud/issues"
+    "url": "https://github.com/gemmau/studbud-final/issues"
   },
-  "homepage": "https://github.com/drew-usyd/studbud#readme",
+  "homepage": "https://github.com/gemmau/studbud-final",
   "dependencies": {
+    "@popperjs/core": "^2.11.5",
+    "bootstrap": "^5.1.3",
     "express": "^4.17.3",
     "sass": "^1.51.0"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.4.1",
     "parcel": "^2.4.1"
-  }
+  },
+  "main": "server.js",
+  "keywords": []
 }

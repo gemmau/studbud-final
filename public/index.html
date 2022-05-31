@@ -2,59 +2,55 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>repl.it</title>
     <link href="./scss/main.scss" rel="stylesheet" type="text/css" />
-    <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+    <!-- <link rel="stylesheet" href="../scss/custom.scss"> -->
   </head>
   <body>
     <header>
       <!-- sidebar navigation -->
       <div class="sidenav">
         <a href="#">Task Board</a>
-        <a href="kanban.html">Content</a>
+        <a href="content.html">Content</a>
     </header>
 
+    <!-- modal -->
+    <div class="modal" id="todo_form">
+      <div class="header">
+        <div class="title">Add Task</div>
+        <button class="btn close-modal">&times;</button>
+      </div>
+      <div class="body">
+        <input type="text" id="todo_input" />
+        <input type="submit" value="Add Task" id="todo_submit" />
+      </div>
+    </div>
+    <!-- todo -->
+    <div class="todo-container">
+      <div class="status" id="no_status">
+        <h1>To Do</h1>
+        <button id="add_btn" data-target-modal="#todo_form">+ Add Task</button>
+        <div class="todo" draggable="true">
+          Practise spelling
+          <span class="close">&times;</span>
+        </div>
+      </div>
+      <div class="status">
+        <h1>In Progress</h1>
+      </div>
+      <div class="status">
+        <h1>Review</h1>
+      </div>
+      <div class="status">
+        <h1>Done</h1>
+      </div>
+    </div>
 
-    <div class="task_board">
-      <form id="taskform">
-        <label for="task">Task:</label>
-        <input type="text" name="task" id="taskInput">
-
-        <br>
-      <!-- Date input -->
-        <label for="dueDate">Due Date: </label>
-        <input type="date" name="dueDate" id="dueDateInput">
-        <br>
-      <!-- Time input -->
-      <label for="completionTime">Completion Time: </label>
-        <input type="time" name="completionTime" id="completionTimeInput">
-
-        <br>
-
-      <label for="estimatedTime">Estimated completion time (in mins):</label>
-      <input type="number" name="estimatedTime" id="estimatedTimeInput">
-      <!-- Priority -->
-      <br>
-
-      <label for="priority">Task Priority:</label>
-      <select name="prority" id="priorityInput">
-        <option value="">Select one</option>
-        <option value="Low">Low</option>
-        <option value="Medium">Medium</option>
-        <option value="High">High</option>
-      </select>
-
-      <br>
-
-        <button type="submit">Submit</button>
-      </form>
-    <ul id="tasklist"> </ul>
-  </div>
+    <div id="overlay"></div>
   
-    <script src="script.js"></script> 
+    <!-- <script src="script.js"></script> -->
     <!-- Swap the scripts to see the working solution -->
-    <!-- <script src="solution.js"></script> -->
-    <!-- <script src="js/bootstrap.js"></script> -->
+    <script src="script.js"></script>
   </body>
 </html>
