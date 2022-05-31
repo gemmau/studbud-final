@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "Assignment 3 repository",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "prestart": "parcel build ./public/index.html",
-    "dev": "parcel serve ./public/index.html"
+    "dev": "parcel ./src/index.html",
+    "prebuild": "npx rimraf build",
+    "build": "parcel build --public-url ./ ./src/index.html --dist-dir build"
   },
   "repository": {
     "type": "git",
@@ -20,7 +19,7 @@
   "homepage": "https://github.com/gemmau/studbud-final",
   "dependencies": {
     "@popperjs/core": "^2.11.5",
-    "bootstrap": "^5.1.3",
+    "bootstrap": "^5.2.0-beta1",
     "express": "^4.17.3",
     "sass": "^1.51.0"
   },
