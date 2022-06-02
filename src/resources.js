@@ -1,3 +1,4 @@
+
 // Selectors for new category form
 const newCategoryForm = document.querySelector('[data-new-category-form]');
 const newCategoryInput = document.querySelector('[data-new-category-input]');

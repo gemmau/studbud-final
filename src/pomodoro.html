@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+	<link rel="stylesheet" href="../scss/custom.scss" />
+	<link rel="icon" type="image/x-icon" href="a3_logo.png">
+    <title>Pomodoro Timer</title>
+</head>
+<body>
+  <!-- ==================== navbar ==================== -->
+  <nav class="navbar navbar-expand-md navbar-light pt-3 pb-4">
+    <div class="container-xxl">
+        <!-- navbar brand / title -->
+        <a class="navbar-brand" href="index.html">
+            <span class="fw-bold">
+            StudBud
+            </span>
+        </a>
+        <!-- toggle button for mobile nav -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- navbar links -->
+        <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#music">Music Player</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="stopwatch.html">Stopwatch</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pomodoro.html">Pomodoro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="resources.html">Resources</a>
+                </li>
+                <!--<li class="nav-item ms-2 d-none d-md-inline">
+                </li> -->
+            </ul>
+        </div>
+    </div>
+ </nav>
+
+<!-- ==================== Pomodoro Timer ==================== -->
+    <h1>Pomodoro Timer</h1>
+    <div id="container">
+        <p id="work" class="label">Work:</p><p id="break" class="label">Break:</p><p id="cycles" class="label">Cycles:</p>
+        <!--Work Timer-->
+        <div id="work-timer" class="timer">
+            <p id="w_minutes">25</p><p class="semicolon">:</p><p id="w_seconds">00</p>
+        </div>
+
+        <!--Cycle Counter-->
+        <p id="counter" class="timer">0</p>
+
+        <!--Break Timer-->
+        <div id="break-timer" class="timer">
+            <p id="b_minutes">05</p><p class="semicolon">:</p><p id="b_seconds">00</p>
+        </div>
+        <button id="start" class="btn">Start</button>
+        <button id="stop" class="btn">Pause</button>
+        <button id="reset" class="btn">Reset</button>
+    </div>
+    <script type="module" src="./index.js"></script>
+    <script src="pomodoro.js"></script>
+</body>
+</html>

@@ -1,3 +1,4 @@
+//=============== Stopwatch ==============
 // Global variables
 const time_el = document.querySelector('.watch .time');
 const start_btn = document.getElementById('start');
@@ -32,11 +33,12 @@ function start () {
 	if (interval) {
 		return
 	}
-
+	// Calls timer function every 1000ms
 	interval = setInterval(timer, 1000);
 }
 
 function stop () {
+	//clearInterval stops setInterval and sets variable back to null
 	clearInterval(interval);
 	interval = null;
 }
@@ -46,3 +48,6 @@ function reset () {
 	seconds = 0;
 	time_el.innerText = '00:00:00';
 }
+
+
+//The code was taught via https://www.youtube.com/watch?v=49f1cjZWRJA&t=506s
