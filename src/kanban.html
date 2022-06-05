@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" href="../scss/custom.scss">-->
+    <link rel="stylesheet" href="./kanban.css">
+    <title>StudBud</title>
+    <link rel="icon" type="image/x-icon" href="a3_logo.png">
+  </head>
+  <body>
+
+      <!-- navbar -->
+      <nav class="navbar navbar-expand-md navbar-light pt-3 pb-4">
+        <div class="container-xxl">
+        <!-- navbar brand / title -->
+        <a class="navbar-brand" href="index.html">
+            <span class="fw-bold display-6">
+            StudBud
+            </span>
+        </a>
+        <!-- toggle button for mobile nav -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- navbar links -->
+        <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="kanban.html">Kanban</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="music.html">Music Player</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="stopwatch.html">Stopwatch</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pomodoro.html">Pomodoro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="resources.html">Resources</a>
+                </li>
+                <!--<li class="nav-item ms-2 d-none d-md-inline">
+                </li> -->
+            </ul>
+        </div>
+        </div>
+    </nav>
+    <!-- ====================== Kanban Board ====================== -->
+        <!-- modal -->
+    <div class="row">
+        <div class="modal" id="todo_form">
+            <div class="header">
+            <div class="title">Add Todo</div>
+            <button class="btn close-modal">&times;</button>
+            </div>
+            <div class="body">
+            <input type="text" id="todo_input" />
+            <input type="submit" value="Add Todo" id="todo_submit" />
+            </div>
+        </div>
+        <!-- todo -->
+        <div class="todo-container">
+            <div class="status" id="no_status">
+            <h1>To Do</h1>
+            <button id="add_btn" data-target-modal="#todo_form">+ Add Todo</button>
+            <div class="todo" draggable="true">
+                Practise Spelling
+                <span class="close">&times;</span>
+            </div>
+            </div>
+            <div class="status">
+            <h1>In Progress</h1>
+            </div>
+            <div class="status">
+            <h1>Review</h1>
+            </div>
+            <div class="status">
+            <h1>Done</h1>
+            </div>
+        </div>
+        <div id="overlay"></div>
+
+    <script src="kanban.js"></script>
+</div>
+
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>

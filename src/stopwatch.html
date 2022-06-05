@@ -15,7 +15,7 @@
 	<div class="container-xxl">
 		<!-- navbar brand / title -->
 		<a class="navbar-brand" href="index.html">
-			<span class="fw-bold">
+			<span class="fw-bold display-6">
 			StudBud
 			</span>
 		</a>
@@ -28,7 +28,10 @@
 		<div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" href="#music">Music Player</a>
+                    <a class="nav-link" href="kanban.html">Kanban</a>
+                </li>
+				<li class="nav-item">
+					<a class="nav-link" href="music.html">Music Player</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="stopwatch.html">Stopwatch</a>
@@ -46,6 +49,7 @@
 	</div>
   </nav>
 <!-- ================ stopwatch ================== -->
+<h1 class="text-center">Stopwatch</h1>
 	<!-- 'my-5' refers to margin top and bottom with a strength of 5-->
 	<!-- 'display-1' refers to text size-->
 	<div class="watch container my-5 text-center">
@@ -54,9 +58,9 @@
 		</div>
 		<div class="controls">
 			<!-- 'success' 'danger' and 'secondary' refers to Boostrap's colour system of green, red and grey -->
-			<button id="start" type="button" class="btn btn-success">Start</button>
-			<button id="stop" type="button" class="btn btn-danger">Stop</button>
-			<button id="reset" type="button" class="btn btn-secondary">Reset</button>
+			<button id="start" type="button" class="btn shadow btn-success">Start</button>
+			<button id="stop" type="button" class="btn shadow btn-danger">Stop</button>
+			<button id="reset" type="button" class="btn shadow btn-secondary">Reset</button>
 		</div>
 	</div>
      <script type="module" src="./index.js"></script>

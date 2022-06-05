@@ -33,9 +33,9 @@ let todos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TODOS_KEY)) || [];
 
 // EVENT: Add Category
 newCategoryForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+    e.preventDefault(); //so it does not refresh when the page is refreshed 
 
-    const category = newCategoryInput.value;
+    const category = newCategoryInput.value; //getting data from input
     const isCategoryEmpty = !category || !category.trim().length;
 
     if (isCategoryEmpty) {
@@ -76,11 +76,11 @@ categoriesContainer.addEventListener('change', (e) => {
 });
 
 // EVENT: Delete Selected Category
-currentlyViewing.addEventListener('click', (e) => {
-    if (e.target.tagName.toLowerCase() === 'span') {
-        categories = categories.filter((category) => category._id !== selectedCategoryId);
+currentlyViewing.addEventListener('click', (e) => { //capture event
+    if (e.target.tagName.toLowerCase() === 'span') { //'span' - delete button
+        categories = categories.filter((category) => category._id !== selectedCategoryId); 
 
-        todos = todos.filter((todo) => todo.categoryId !== selectedCategoryId);
+        todos = todos.filter((todo) => todo.categoryId !== selectedCategoryId); //allows for only the cards to be displayed of the selected category
 
         selectedCategoryId = null;
 
@@ -88,7 +88,7 @@ currentlyViewing.addEventListener('click', (e) => {
     }
 });
 
-// EVENT: Add Todo
+// EVENT: Add Todo - text from input to display on cards
 newTodoForm.addEventListener('submit', (e) => {
     e.preventDefault();
     todos.push({
@@ -104,11 +104,12 @@ newTodoForm.addEventListener('submit', (e) => {
 });
 
 // EVENT: Load Edit Todo Form With Values
+//Adding an event listener to the whole container and using if statements to see when the user clicks on the edit and trash icons
 let todoToEdit = null;
 todosContainer.addEventListener('click', (e) => {
-    if (e.target.classList[1] === 'fa-edit') {
-        newTodoForm.style.display = 'none';
-        editTodoForm.style.display = 'flex';
+    if (e.target.classList[1] === 'fa-edit') { //comparison operator used to distinguish between the edit(fa-edit) and trash(fa-trash-alt) button 
+        newTodoForm.style.display = 'none'; //hides to do form when user clicks on edit button
+        editTodoForm.style.display = 'flex'; //displays edit form
 
         todoToEdit = todos.find((todo) => todo._id === e.target.dataset.editTodo);
 
@@ -118,7 +119,7 @@ todosContainer.addEventListener('click', (e) => {
     if (e.target.classList[1] === 'fa-trash-alt') {
         const todoToDeleteIndex = todos.findIndex((todo) => todo._id === e.target.dataset.deleteTodo);
 
-        todos.splice(todoToDeleteIndex, 1);
+        todos.splice(todoToDeleteIndex, 1); //deletes element from array
 
         saveAndRender();
     }
@@ -152,9 +153,9 @@ function save() {
     localStorage.setItem(LOCAL_STORAGE_TODOS_KEY, JSON.stringify(todos));
     localStorage.setItem(LOCAL_STORAGE_SELECTED_CATEGORY_ID_KEY, selectedCategoryId);
 }
-
+//to display the results from the previous 2 functions in the DOM
 function render() {
-    clearChildElements(categoriesContainer);
+    clearChildElements(categoriesContainer); //to stop items from being re-rendered 
     clearChildElements(newTodoSelect);
     clearChildElements(editTodoSelect);
     clearChildElements(todosContainer);
@@ -181,17 +182,20 @@ function renderCategories() {
     });
 }
 
+//Getting the categories into the form
 function renderFormOptions() {
 
     newTodoSelect.innerHTML += `<option value="">Select A Category</option>`;
     editTodoSelect.innerHTML += `<option value="">Select A Category</option>`;
-
+    //This function affects the DOM when the user is choosing a category from the category's that they have added
+    //'_id' refers to the categories in the side bar 
     categories.forEach(({ _id, category }) => {
         newTodoSelect.innerHTML += `<option value=${_id}>${category}</option>`;
         editTodoSelect.innerHTML += `<option value=${_id}>${category}</option>`;
     });
 }
 
+//Rendering the resource cards 
 function renderTodos() {
     let todosToRender = todos;
 
@@ -204,6 +208,7 @@ function renderTodos() {
     todosToRender.forEach(({ _id, categoryId, todo }) => {
 
         // Get Complimentary categoryDetails Based On TaskId
+        //for each todo, loop through the categories 
         const { color, category } = categories.find(({ _id }) => _id === categoryId);
         const backgroundColor = convertHexToRGBA(color, 20);
         todosContainer.innerHTML += `
@@ -221,12 +226,14 @@ function renderTodos() {
 }
 
 // HELPERS
+//this function affects the 'My Categories' side bar and removes the child elements when rendering 
 function clearChildElements(element) {
     while (element.firstChild) {
         element.removeChild(element.firstChild);
     }
 }
 
+//Function to change colours of categories and card from HEX to RGB
 function convertHexToRGBA(hexCode, opacity) {
     let hex = hexCode.replace('#', '');
 
@@ -248,3 +255,5 @@ function getRandomHexColor() {
 }
 
 window.addEventListener('load', render);
+
+//Reference - https://www.youtube.com/watch?v=AhILNER5X4Y taught concepts of DOM manipulation and events for the Resource List

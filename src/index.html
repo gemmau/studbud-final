@@ -7,13 +7,13 @@
     <title>StudBud</title>
     <link rel="icon" type="image/x-icon" href="a3_logo.png">
   </head>
-  <body>
+<body>
   <!-- navbar -->
     <nav class="navbar navbar-expand-md navbar-light pt-3 pb-4">
         <div class="container-xxl">
         <!-- navbar brand / title -->
         <a class="navbar-brand" href="#intro">
-            <span class="fw-bold">
+            <span class="fw-bold display-6">
             StudBud
             </span>
         </a>
@@ -26,7 +26,10 @@
         <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#music">Music Player</a>
+                    <a class="nav-link" href="kanban.html">Kanban</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="music.html">Music Player</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="stopwatch.html">Stopwatch</a>
@@ -43,11 +46,78 @@
         </div>
         </div>
     </nav>
-
-  <!-- main image & intro text -->
-    <section id="intro">
-
+<!-- ====================== Task List ====================== -->
+    <section class="container-lg">
+        <h2 class="text-start mt-2">Task List</h2>
+            <div class="tasks">
+                <form id="taskform">
+                    <!-- task input -->
+                    <div class="row my-3">
+                        <div class="col-3">
+                            <label for="task">Task:</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" name="task" id="taskInput"/>
+                        </div>
+                    </div>                
+                    <!-- date input -->
+                    <div class="row my-3">
+                        <div class="col-3">
+                            <label for="dueDate">Due Date: </label>
+                        </div>
+                        <div class="col-3">
+                            <input type="date" name="dueDate" id="dueDateInput">
+                        </div>
+                    </div>                                       
+                    <!-- time input -->
+                    <div class="row my-3">
+                        <div class="col-3">
+                            <label for="completionTime">Completion Time: </label>
+                        </div>
+                        <div class="col-3">
+                            <input type="time" name="completionTime" id="completionTimeInput">
+                        </div>
+                    </div>
+                    <!-- estimated completion time -->
+                    <div class="row my-3">
+                        <div class="col-3">
+                            <label for="estimatedTime">Estimated completion time (in minutes):</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="number" name="estimatedTime" id="estimatedTimeInput">
+                        </div>
+                    </div>
+                    <!-- priority input -->
+                    <div class="row my-3">
+                        <div class="col-3">
+                            <label for="priority">Priority Rating:</label>
+                        </div>
+                        <div class="col-3">
+                            <select name="priority" id="priorityInput">
+                                <option value="">Select one</option>
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- submit button -->
+                    <div class="row justify-content-center my-3">
+                        <div class="col-9">
+                            <button type="submit" class="btn shadow px-4 btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+                <ul id="tasklist"></ul>
+            </div>
+            <script src="task.js"></script>
     </section>
+        
+
+
+    <!-- main image & intro text 
+    <section id="intro">
+    </section> -->
 
     <script type="module" src="./index.js"></script>
   </body>
