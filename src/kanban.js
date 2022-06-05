@@ -123,3 +123,5 @@ close_btns.forEach((btn) => {
     btn.parentElement.style.display = "none";
   });
 });
+
+//Reference code from https://www.youtube.com/watch?v=m3StLl-H4CY 

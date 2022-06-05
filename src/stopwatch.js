@@ -50,4 +50,4 @@ function reset () {
 }
 
 
-//The code was taught via https://www.youtube.com/watch?v=49f1cjZWRJA&t=506s
+//Reference - the code https://www.youtube.com/watch?v=49f1cjZWRJA&t=506s

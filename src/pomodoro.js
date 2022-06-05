@@ -73,3 +73,5 @@ function timer(){
 function stopInterval(){
     clearInterval(startTimer);
 }
+
+//Reference - code https://www.youtube.com/watch?v=vAEG6OVCass 
